@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import localFont from "next/font/local";
 import styles from "@/styles/Home.module.css";
 
@@ -35,11 +36,22 @@ export default function Home() {
             height={38}
             priority
           />
+          <h1>Page Router Example</h1>
+          <p>Next.jsのPage Routerの学習用プロジェクトです。</p>
+          
           <ol>
             <li>
-              Get started by editing <code>src/pages/index.tsx</code>.
+              基本的なページルーティング: <Link href="/about">About</Link> | <Link href="/contact">Contact</Link>
             </li>
-            <li>Save and see your changes instantly.</li>
+            <li>
+              動的ルーティング: <Link href="/posts/hello-world">Posts</Link> | <Link href="/users/123">User Profile</Link>
+            </li>
+            <li>
+              ネストしたルーティング: <Link href="/blog/category/tech">Blog Category</Link>
+            </li>
+            <li>
+              APIルート: <Link href="/api/hello">API Hello</Link>
+            </li>
           </ol>
 
           <div className={styles.ctas}>

@@ -2,12 +2,24 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
-  name: string;
+  message: string;
+  method: string;
+  timestamp: string;
+  query: any;
+  body: any;
 };
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  res.status(200).json({ name: "John Doe" });
+  const { method, query, body } = req;
+  
+  res.status(200).json({ 
+    message: "Hello from API Route!",
+    method: method || 'GET',
+    timestamp: new Date().toISOString(),
+    query,
+    body,
+  });
 }
